@@ -5,7 +5,14 @@
 </head>
 <body>
     <h2>РЕГИСТРАЦИЯ</h2>
-    <form method="POST" action="/login">
+    @if($errors->any())
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
+    <form method="POST" action="/register">
         @csrf
         <label for="login">Логин:</label>
         <input type="text" name="login" required><br>

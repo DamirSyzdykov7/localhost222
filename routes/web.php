@@ -15,13 +15,15 @@ use App\Http\Controllers\MainController;
 |
 */
 //Route::get('/login', 'AuthorizeController@showLoginForm');
-Route::get('/login', [AuthorizeController::class, 'showLoginForm']);
+Route::get('/', [AuthorizeController::class, 'showLoginForm']);
 //Route::post('/login', 'AuthorizeController@login');
 Route::post('/login', [AuthorizeController::class, 'login']);
 //Route::post('/register', 'AuthController@ShowRegistForm');
 Route::get('/register', [AuthorizeController::class, 'ShowRegistForm']);
+Route::post('/register', [AuthorizeController::class, 'registration']);
 //Route::get('/main', 'MainController@index');
 Route::get('/main', [MainController::class, 'ShowMainView']);
+Route::get('/Organization', [MainController::class, 'Organization']);
 
 
 //Route::get("/", function(){

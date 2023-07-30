@@ -7,15 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <form method="POST" action="/main">
     @csrf
-    <div class="card pb-4" style="width:auto; height:900px;">
+    <div class="card pb-4" style="width:auto; height:auto;">
         <p class="text-center">ЗАВЕДЕНИЯ</p>
-        <div class="card mt-4" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 200px;">
-            <div style="border-radius: 7px; border: 2px solid #f76707;">Burger King</div>
-            <div style="border-radius: 7px; border: 2px solid #f76707;">Yakudza</div>
-            <div style="border-radius: 7px; border: 2px solid #f76707;">Hudson</div>
-            <div style="border-radius: 7px; border: 2px solid #f76707;">Izmir</div>
-            <div style="border-radius: 7px; border: 2px solid #f76707;">Discovery Coffee</div>
-            <div style="border-radius: 7px; border: 2px solid #f76707;">Dodo Pizza</div>
+        <div class="card mt-4" style="height:1500px; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 200px;justify-items: center;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 200px; padding-bottom: 4px;grid-row-gap: 50px;grid-column-gap: 20px; justify-items: center;">
+                @foreach ($organization as $item)
+                <a href="/Organization?id={{$item["id"]}}"><li>{{ $item->заведение }} - <img src="/public/{{ $item->photo}}" width="300px" height="200px"></li></a>
+            @endforeach
+            </div>
         </div>
     </div>
 </form>

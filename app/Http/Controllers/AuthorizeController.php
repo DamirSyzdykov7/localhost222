@@ -37,7 +37,7 @@ class AuthorizeController extends Controller
 
     public function registration(Request $request) {
         $request->validate([
-            'login' => 'required|unique:users',
+            'login' => 'required|unique:SignIn',
             'password' => 'required',
         ]);
 
@@ -46,6 +46,6 @@ class AuthorizeController extends Controller
         $user->password = $request->input('password');
         $user->save();
 
-        return redirect('/login');
+        return redirect('/');
     }
 }
